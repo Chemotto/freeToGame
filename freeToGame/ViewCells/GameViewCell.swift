@@ -8,6 +8,12 @@
 import UIKit
 
 class GameViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var cardView: UIView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,4 +26,14 @@ class GameViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func configure(with game: game) {
+        titleLabel.text = game.title
+        thumbnailImageView.loadFrom(url: game.thumbnail)
+        
+        cardView.layer.cornerRadius = 32
+        cardView.layer.masksToBounds = true
+        
+    }
+    
+    
 }

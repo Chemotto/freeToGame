@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="595-WM-sWP">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
@@ -8,25 +8,119 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List View Controller-->
+        <!--Free games-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="freeToGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="260" estimatedRowHeight="260" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ana-BW-ghi">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="784"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Game Cell" rowHeight="260" id="7Wp-Kq-XH2" customClass="GameViewCell" customModule="freeToGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="260"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Wp-Kq-XH2" id="lCi-Er-rTU">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zp7-aC-1lU" userLabel="Card View">
+                                                    <rect key="frame" x="20" y="15" width="353" height="230"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afy-xG-mE4" userLabel="thumbnailImageView">
+                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="200"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZq-fB-b01">
+                                                            <rect key="frame" x="8" y="199" width="337" height="31"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="cardView" destination="Zp7-aC-1lU" id="haa-Jp-15m"/>
+                                            <outlet property="thumbnailImageView" destination="afy-xG-mE4" id="GBU-hi-cMH"/>
+                                            <outlet property="titleLabel" destination="EZq-fB-b01" id="xMd-wO-QY4"/>
+                                            <segue destination="eZf-in-oRt" kind="show" id="ulG-gX-Om0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ana-BW-ghi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Vyz-eS-0uw"/>
+                            <constraint firstItem="Ana-BW-ghi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="apN-Wg-AS6"/>
+                            <constraint firstItem="Ana-BW-ghi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="e15-bV-Nh7"/>
+                            <constraint firstItem="Ana-BW-ghi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u2f-q4-eDU"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Free games" id="zJI-od-Ucv"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ana-BW-ghi" id="8t2-0T-FST"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="97"/>
+            <point key="canvasLocation" x="1066.4122137404579" y="96.478873239436624"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="3oR-ts-TRE">
+            <objects>
+                <viewController id="eZf-in-oRt" customClass="DetailViewController" customModule="freeToGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eO7-q4-gnZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="RCJ-jM-EUF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aJz-uK-ZCh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBx-hg-gWF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1852.6717557251907" y="95.774647887323951"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="62B-3G-SwX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="595-WM-sWP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YsQ-QX-NiP">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Mfv-el-kDU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNC-lw-3ey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="96.478873239436624"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.0" green="0.75294117647058822" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

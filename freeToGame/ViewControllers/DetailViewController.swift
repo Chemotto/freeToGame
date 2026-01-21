@@ -8,11 +8,21 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    var game: game!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        navigationItem.title = game.title
+        
+        
+        
+        
     }
     
 
