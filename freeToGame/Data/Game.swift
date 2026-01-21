@@ -16,13 +16,13 @@ struct game: Codable {
     let gameUrl: String
     let genre: String
     let platform: String
-    let publiser: String
+    let publisher: String
     let developer: String
     let releaseDate: String
     let profileUrl: String
     let description: String?
-    let systemRequirements: systemRequirements
-    let Screenshots: [Screenshots]?
+    let systemRequirements: SystemRequirements?
+    let screenshots: [Screenshots]?
     
     
     
@@ -31,18 +31,18 @@ struct game: Codable {
         case shortDescription = "short_description"
         case gameUrl = "game_url"
         case releaseDate = "release_date"
-        case profileUrl = "profile_url"
+        case profileUrl = "freetogame_profile_url"
         case systemRequirements = "minimum_system_requirements"
     
         
-        case id, title, thumbnail,genre, platform, publiser, developer, description, Screenshots
+        case id, title, thumbnail,genre, platform, publisher, developer, description, screenshots
         
 
         
     }
 }
 
-struct systemRequirements: Codable {
+struct SystemRequirements: Codable {
     let os: String
     let processor: String
     let memory: String
