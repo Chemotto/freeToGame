@@ -82,12 +82,42 @@
             <objects>
                 <viewController id="eZf-in-oRt" customClass="DetailViewController" customModule="freeToGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eO7-q4-gnZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1364"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucB-Ve-gse">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1364"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koq-gW-Iug" userLabel="Scroll Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="EkX-Nl-wq6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="koq-gW-Iug" firstAttribute="top" secondItem="Wtn-7h-qBq" secondAttribute="top" id="D18-Zs-zox"/>
+                                    <constraint firstItem="koq-gW-Iug" firstAttribute="width" secondItem="rXp-5G-Ide" secondAttribute="width" id="Yhw-Ls-063"/>
+                                    <constraint firstItem="koq-gW-Iug" firstAttribute="trailing" secondItem="Wtn-7h-qBq" secondAttribute="trailing" id="snh-3s-06U"/>
+                                    <constraint firstItem="koq-gW-Iug" firstAttribute="leading" secondItem="Wtn-7h-qBq" secondAttribute="leading" id="tdV-e5-YmI"/>
+                                    <constraint firstItem="koq-gW-Iug" firstAttribute="bottom" secondItem="Wtn-7h-qBq" secondAttribute="bottom" id="x7W-Ef-yaY"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Wtn-7h-qBq"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="rXp-5G-Ide"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="RCJ-jM-EUF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ucB-Ve-gse" firstAttribute="top" secondItem="eO7-q4-gnZ" secondAttribute="top" id="FK1-sc-PJm"/>
+                            <constraint firstItem="ucB-Ve-gse" firstAttribute="trailing" secondItem="RCJ-jM-EUF" secondAttribute="trailing" id="akn-2O-KgH"/>
+                            <constraint firstAttribute="bottom" secondItem="ucB-Ve-gse" secondAttribute="bottom" id="iUb-dt-xsa"/>
+                            <constraint firstItem="ucB-Ve-gse" firstAttribute="leading" secondItem="RCJ-jM-EUF" secondAttribute="leading" id="nWg-g6-X6a"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aJz-uK-ZCh"/>
+                    <size key="freeformSize" width="393" height="1364"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBx-hg-gWF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
