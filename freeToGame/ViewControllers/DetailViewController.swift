@@ -8,6 +8,15 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var platformImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
+    
+    
     
     var game: game!
     
@@ -15,13 +24,44 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         navigationItem.title = game.title
         
+        titleLabel.text = game.title
+        thumbnailImageView.loadFrom(url: game.thumbnail)
+        genreLabel.text = game.genre
+        descriptionLabel.text = game.description
+        platformImageView.image = if game.platform == "PC (Windows)" {
+            UIImage(systemName: "desktopcomputer")
+        } else {
+            UIImage(systemName: "safari")
+        }
         
         
+        Task {
+            game = await GameProvider().getGamebyId(id: game.id)
+            
+            DispatchQueue.main.async {
+                self.loaddata()
+                
+            }
+        }
+    }
+        
+        
+        func loaddata() {
+            titleLabel.text = game.title
+            thumbnailImageView.loadFrom(url: game.thumbnail)
+            genreLabel.text = game.genre
+            descriptionLabel.text = game.description
+            platformImageView.image = if game.platform == "PC (Windows)" {
+                UIImage(systemName: "desktopcomputer")
+            } else {
+                UIImage(systemName: "safari")
+            }
+        }
         
     }
     
@@ -36,4 +76,4 @@ class DetailViewController: UIViewController {
     }
     */
 
-}
+
